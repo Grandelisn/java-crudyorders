@@ -1,4 +1,4 @@
-package com.lambdaschool.getorders.models;
+package com.lambdaschool.crudyorders.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

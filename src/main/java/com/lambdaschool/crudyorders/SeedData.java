@@ -1,26 +1,23 @@
-package com.lambdaschool.orders;
+package com.lambdaschool.crudyorders;
 
 //import com.github.javafaker.Faker;
-import com.lambdaschool.getorders.models.Agent;
-import com.lambdaschool.getorders.models.Customer;
-import com.lambdaschool.getorders.models.Order;
-import com.lambdaschool.getorders.models.Payment;
-import com.lambdaschool.getorders.repositories.AgentsRepository;
-import com.lambdaschool.getorders.repositories.CustomersRepository;
-import com.lambdaschool.getorders.repositories.OrdersRepository;
-import com.lambdaschool.getorders.repositories.PaymentRepository;
+import com.lambdaschool.crudyorders.models.Agent;
+import com.lambdaschool.crudyorders.models.Customer;
+import com.lambdaschool.crudyorders.models.Order;
+import com.lambdaschool.crudyorders.models.Payment;
+import com.lambdaschool.crudyorders.repositories.AgentsRepository;
+import com.lambdaschool.crudyorders.repositories.CustomersRepository;
+import com.lambdaschool.crudyorders.repositories.OrdersRepository;
+import com.lambdaschool.crudyorders.repositories.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.Locale;
 import java.util.Random;
-import java.util.Set;
 
 @Transactional
-@Component
+//@Component
 public class SeedData
     implements CommandLineRunner
 {

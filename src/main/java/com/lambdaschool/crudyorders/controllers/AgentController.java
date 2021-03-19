@@ -1,14 +1,11 @@
-package com.lambdaschool.getorders.controllers;
+package com.lambdaschool.crudyorders.controllers;
 
-import com.lambdaschool.getorders.models.Agent;
-import com.lambdaschool.getorders.services.AgentsService;
+import com.lambdaschool.crudyorders.models.Agent;
+import com.lambdaschool.crudyorders.services.AgentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 //The entry point for clients to access Agent data
 @RestController
@@ -35,4 +32,13 @@ public class AgentController {
             HttpStatus.OK);
     }
 
+    @DeleteMapping(value = "/unassigned/{agentid}")
+    public ResponseEntity<?> deleteAgentById(
+        @PathVariable
+            long agentid
+    ){
+       agentsService.deleteUnassigned(agentid);
+
+       return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

@@ -1,4 +1,4 @@
-package com.lambdaschool.getorders.models;
+package com.lambdaschool.crudyorders.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,15 +29,31 @@ public class Customer {
     //The grade (String) of the customer.
     private String grade;
 
+    //Used to determine if the field openingamt has been set or is NULL, meaning 0.0 for a double value
+    //Does not get saved to the database
+    @Transient
+    public boolean hasvalueforopeningamt = false;
     //The openingamt (double) of the customer's account.
     private double openingamt;
 
+    //Used to determine if the field outstandingamt has been set or is NULL, meaning 0.0 for a double value
+    //Does not get saved to the database
+    @Transient
+    public boolean hasvalueforoutstandingamt = false;
     //The amount outstanding (double) on the customer's account
     private double outstandingamt;
 
+    //Used to determine if the field paymentamt has been set or is NULL, meaning 0.0 for a double value
+    //Does not get saved to the database
+    @Transient
+    public boolean hasvalueforpaymentamt = false;
     //The payment amount (double) on the customer's account
     private double paymentamt;
 
+    //Used to determine if the field receiveamt has been set or is NULL, meaning 0.0 for a double value
+    //Does not get saved to the database
+    @Transient
+    public boolean hasvalueforreceiveamt = false;
     //The amount received (double) on the customer's account
     private double receiveamt;
 
@@ -168,6 +184,19 @@ public class Customer {
         this.grade = grade;
     }
 
+    //Getter for paymentamt
+    //@return The payment amount (double) on the customer's account
+    public double getPaymentamt() {
+        return paymentamt;
+    }
+
+    //Setter for paymentamt
+    //@params paymentamt The new payment amount (double) on the customer's account
+    public void setPaymentamt(double paymentamt) {
+        hasvalueforpaymentamt = true;
+        this.paymentamt = paymentamt;
+    }
+
     //Getter for openingamt
     //@return The openingamt (double) of the customer's account
     public double getOpeningamt() {
@@ -177,6 +206,7 @@ public class Customer {
     //Setter for openingamt
     //@param openingamt The new openingamt (double) of the customer's account
     public void setOpeningamt(double openingamt) {
+        hasvalueforopeningamt = true;
         this.openingamt = openingamt;
     }
 
@@ -189,19 +219,21 @@ public class Customer {
     //Setter for oustandingamt
     //@param oustandingamt The new amount outstanding (double) of the customer's account
     public void setOutstandingamt(double outstandingamt) {
+        hasvalueforoutstandingamt = true;
         this.outstandingamt = outstandingamt;
     }
 
-    //Getter for paymentamt
-    //@return The payment amount (double) on the customer's account
-    public double getPaymentamt() {
-        return paymentamt;
+    //Getter for receiveamt
+    //@return The amount received (double) on the customer's account
+    public double getReceiveamt() {
+        return receiveamt;
     }
 
-    //Setter for paymentamt
-    //@params paymentamt The new payment amount (double) on the customer's account
-    public void setPaymentamt(double paymentamt) {
-        this.paymentamt = paymentamt;
+    //Setter for receiveamt
+    //@param receiveamt The new amount received (double) on the customer's account
+    public void setReceiveamt(double receiveamt) {
+        hasvalueforreceiveamt = true;
+        this.receiveamt = receiveamt;
     }
 
     //Getter for phone
@@ -214,18 +246,6 @@ public class Customer {
     //@param phone The new phone number (String) of the agent
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    //Getter for receiveamt
-    //@return The amount received (double) on the customer's account
-    public double getReceiveamt() {
-        return receiveamt;
-    }
-
-    //Setter for receiveamt
-    //@param receiveamt The new amount received (double) on the customer's account
-    public void setReceiveamt(double receiveamt) {
-        this.receiveamt = receiveamt;
     }
 
     //Getter for workingarea
